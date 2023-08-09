@@ -30,17 +30,10 @@ export class HeroesComponent implements OnInit {
         this.heroes = heroes;
         this.messageService.add('HeroesComponent: fetched heroes');
       },
-      error: (err) => {
-        console.log(err);
-        this.messageService.add('HeroesComponent: error fetching heroes');
-      },
-      complete: () => {
-        this.messageService.add('HeroesComponent: fetched heroes');
-        console.log('done');
-      },
     });
   }
 
+  // method not used but keeping for reference
   onSelect(hero: Hero) {
     this.seletedHero = hero;
     this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
