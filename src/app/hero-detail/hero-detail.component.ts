@@ -1,6 +1,6 @@
-import { Observable } from 'rxjs'
+import { Observable, Subscription } from 'rxjs'
 
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input, OnDestroy, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 
 import { Hero } from '../hero'
@@ -12,9 +12,10 @@ import { MessageService } from '../services/message.service'
   templateUrl: './hero-detail.component.html',
   styleUrls: ['./hero-detail.component.css'],
 })
-export class HeroDetailComponent implements OnInit {
+export class HeroDetailComponent implements OnInit, OnDestroy {
   hero?: Hero;
   id?: number;
+  substription?: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -47,5 +48,9 @@ export class HeroDetailComponent implements OnInit {
         },
       });
     }
+  }
+
+  ngOnDestroy(): void {
+    this.substription?.unsubscribe();
   }
 }
