@@ -2,7 +2,7 @@
 
 <h2>Top Heroes</h2>
 <div class="heroes-menu">
-  <a *ngFor="let hero of dashedBoardHeros" [routerLink]="['/heroes', hero.id]">
+  <a *ngFor="let hero of dashedBoardHeros" [routerLink]="['/heroes', hero.url]">
     {{ hero.name }}
   </a>
 </div>

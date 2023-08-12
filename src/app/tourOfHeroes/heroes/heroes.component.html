@@ -2,15 +2,22 @@
 
 <hr />
 <ul class="heroes">
+  <input
+    type="search"
+    name="search"
+    #searchBox="ngModel"
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="searchHero(searchBox.value)"
+  />
   <li *ngFor="let hero of heroes">
     <!-- <app-hero [hero]="hero"></app-hero> -->
 
     <button
       type="button"
       (click)="onSelect(hero)"
-      [routerLink]="['/heroes', hero.id]"
+      [routerLink]="['/heroes', hero.url]"
     >
-      <span class="badge">{{ hero?.id }}</span>
+      <span class="badge">{{ hero?.name }}</span>
       <span class="name">{{ hero?.name }}</span>
     </button>
   </li>

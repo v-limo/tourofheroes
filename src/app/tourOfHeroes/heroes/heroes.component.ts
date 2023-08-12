@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 
-import { Hero } from '../hero'
-import { HEROES } from '../mock-heroes'
+import { Hero } from '../hero.interface'
 import { HeroService } from '../services/hero.service'
 import { MessageService } from '../services/message.service'
 
@@ -13,7 +12,9 @@ import { MessageService } from '../services/message.service'
 export class HeroesComponent implements OnInit {
   title = 'Tour of Heroes';
   heroes: Hero[] = [];
+  searchedHeros: Hero[] = [];
   seletedHero?: Hero;
+  searchTerm: string = 'fdfdsfds';
 
   constructor(
     private heroService: HeroService,
@@ -27,7 +28,7 @@ export class HeroesComponent implements OnInit {
   getHeroes(): void {
     this.heroService.getAllHeroes().subscribe({
       next: (heroes) => {
-        this.heroes = heroes;
+        this.heroes = heroes.results;
         this.messageService.add('HeroesComponent: fetched heroes');
       },
     });
@@ -36,6 +37,12 @@ export class HeroesComponent implements OnInit {
   // method not used but keeping for reference
   onSelect(hero: Hero) {
     this.seletedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
+    this.messageService.add(`HeroesComponent: Selected hero id=${hero.name}`);
+  }
+
+  searchHero(searchTerm: string): void {
+    this.searchedHeros = this.heroes.filter((hero) => {
+      return hero.name.toLowerCase().includes(searchTerm.toLowerCase());
+    });
   }
 }

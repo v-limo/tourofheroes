@@ -1,0 +1,41 @@
+<hr style="margin-top: 20%" />
+
+<h2>Messages ({{ messageService.messages.length }})</h2>
+
+<div *ngIf="messageService.messages.length">
+  <strong>Messages:</strong>
+
+  <button class="clear" type="button" (click)="messageService.clear()">
+    clear all messages
+  </button>
+  <ol
+    [ngStyle]="{
+      listStyleType: 'none',
+      padding: 0,
+      margin: 0
+    }"
+  >
+    <li
+      *ngFor="let message of messageService.messages; let i = index"
+      [ngStyle]="{
+        padding: '0.2rem',
+        margin: '0.5rem 0',
+        background: 'lightgrey',
+        borderRadius: '4px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+      }"
+    >
+      {{ i + 1 }} . {{ message.content | slice : 0 : 35 }} - ({{
+        message.id.toLocaleString()
+      }})
+      <button
+        style="height: fit-content"
+        (click)="messageService.remove(message.id)"
+      >
+        clear
+      </button>
+    </li>
+  </ol>
+</div>

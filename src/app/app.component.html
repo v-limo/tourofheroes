@@ -1,7 +1,31 @@
 <h1>{{ title }}</h1>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
+<nav
+  [ngStyle]="{
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  }"
+>
+  <a
+    [ngStyle]="{
+      color: 'white',
+      background: 'green',
+      padding: '0.5rem',
+      borderRadius: '4px'
+    }"
+    routerLink="/dashboard"
+    >Dashboard</a
+  >
+  <a
+    [ngStyle]="{
+      color: 'white',
+      background: 'green',
+      padding: '0.5rem',
+      borderRadius: '4px'
+    }"
+    routerLink="/heroes"
+    >Heroes</a
+  >
 </nav>
 <router-outlet></router-outlet>
 <app-messages></app-messages>

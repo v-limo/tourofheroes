@@ -1,10 +1,10 @@
-import { Subscription } from 'rxjs'
+import { Subscription } from 'rxjs';
 
-import { Component, OnDestroy, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
-import { Hero } from '../hero'
-import { HeroService } from '../services/hero.service'
-import { MessageService } from '../services/message.service'
+import { Hero } from '../hero.interface';
+import { HeroService } from '../services/hero.service';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,7 +23,7 @@ export default class DashboardComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.substription = this.heroService.getAllHeroes().subscribe({
       next: (heroes) => {
-        this.dashedBoardHeros = heroes.slice(1, 5);
+        this.dashedBoardHeros = heroes.results.slice(1, 5);
         this.messageService.add('DashboardComponent: fetched 5 heroes');
       },
       error: (_err) => {

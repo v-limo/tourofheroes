@@ -1,9 +1,0 @@
-<hr style="margin-top: 20%" />
-<div *ngIf="messageService.messages.length">
-  <strong>Messages:</strong>
-
-  <button class="clear" type="button" (click)="messageService.clear()">
-    clear
-  </button>
-  <div *ngFor="let message of messageService.messages">{{ message }}</div>
-</div>
