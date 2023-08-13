@@ -1,31 +1,83 @@
-<h1>{{ title }}</h1>
-<nav
+<!-- <nav
   [ngStyle]="{
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center'
   }"
 >
-  <a
+  <div
     [ngStyle]="{
-      color: 'white',
-      background: 'green',
-      padding: '0.5rem',
-      borderRadius: '4px'
-    }"
-    routerLink="/dashboard"
-    >Dashboard</a
+  margin: '1',
+  padding: '1.2rem',
+  }"
   >
-  <a
-    [ngStyle]="{
-      color: 'white',
-      background: 'green',
-      padding: '0.5rem',
-      borderRadius: '4px'
-    }"
-    routerLink="/heroes"
-    >Heroes</a
-  >
+    <a
+      [ngStyle]="{
+        color: 'white',
+        background: 'green',
+        padding: '0.5rem',
+        borderRadius: '4px'
+      }"
+      routerLink="/dashboard"
+      >Dashboard</a
+    >
+  </div>
+  <div>
+    <a
+      [ngStyle]="{
+        color: 'white',
+        background: 'green',
+        padding: '0.5rem',
+        borderRadius: '4px'
+      }"
+      routerLink="/dashboard"
+      >Dashboard</a
+    >
+    <a
+      [ngStyle]="{
+        color: 'white',
+        background: 'green',
+        padding: '0.5rem',
+        borderRadius: '4px'
+      }"
+      routerLink="/heroes"
+      >Heroes</a
+    >
+
+    <a
+      [ngStyle]="{
+        color: 'white',
+        background: 'green',
+        padding: '0.5rem',
+        borderRadius: '4px'
+      }"
+      routerLink="/homes"
+    >
+      Homes
+    </a>
+  </div>
 </nav>
 <router-outlet></router-outlet>
-<app-messages></app-messages>
+ -->
+
+<main>
+  <nav>
+    <a [routerLink]="['/homes']">
+      <header class="brand-name">
+        <img
+          class="brand-logo"
+          src="/assets/logo.svg"
+          alt="logo"
+          aria-hidden="true"
+        />
+      </header>
+    </a>
+  </nav>
+  <section class="content">
+    <router-outlet></router-outlet>
+  </section>
+
+  <section class="content">
+    <app-messages></app-messages>
+  </section>
+</main>

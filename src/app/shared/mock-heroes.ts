@@ -1,4 +1,4 @@
-import { Hero } from './tourOfHeroes/hero.interface';
+import { Hero } from '../tourOfHeroes/hero.interface';
 
 export const HEROES = [
   { id: 12, name: 'Dr. Nice' },

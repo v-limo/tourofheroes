@@ -1,10 +1,33 @@
-/* Application-wide Styles */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+:root {
+  --primary-color: #605dc8;
+  --secondary-color: #8b89e6;
+  --accent-color: #e8e7fa;
+  --shadow-color: #e8e8e8;
+}
+
+button.primary {
+  padding: 10px;
+  border: solid 1px var(--primary-color);
+  background: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+}
+
 h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
-h2, h3 {
+h2,
+h3 {
   color: #444;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: lighter;
@@ -12,7 +35,9 @@ h2, h3 {
 body {
   margin: 2em;
 }
-body, input[type="text"], button {
+body,
+input[type="text"],
+button {
   color: #333;
   font-family: Cambria, Georgia, serif;
 }

@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { HEROES } from '../../mock-heroes';
+import { HEROES } from '../../shared/mock-heroes';
 import { Hero, IHeroDetailResponse, IHeroResponse } from '../hero.interface';
 import { MessageService } from './message.service';
 
