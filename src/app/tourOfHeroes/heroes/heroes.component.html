@@ -1,27 +1,28 @@
 <h2>My Heroes</h2>
 
-<hr />
+<hr/>
 <ul class="heroes">
   <input
-    type="search"
-    name="search"
     #searchBox="ngModel"
-    [(ngModel)]="searchTerm"
     (ngModelChange)="searchHero(searchBox.value)"
+    [(ngModel)]="searchTerm"
+    name="search"
+    type="search"
   />
   <li *ngFor="let hero of heroes">
     <!-- <app-hero [hero]="hero"></app-hero> -->
 
     <button
-      type="button"
       (click)="onSelect(hero)"
       [routerLink]="['/heroes', hero.url]"
+      type="button"
     >
+
       <span class="badge">{{ hero?.name }}</span>
       <span class="name">{{ hero?.name }}</span>
     </button>
   </li>
 </ul>
 
-<hr />
+<hr/>
 

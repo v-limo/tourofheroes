@@ -1,9 +1,9 @@
-<hr />
+<hr/>
 <h1>
   {{ hero?.name | uppercase }}
 </h1>
 
-<hr />
+<hr/>
 <div *ngIf="hero?.descriptions?.length">
   <h2>description:</h2>
   <ol>
@@ -18,12 +18,12 @@
   <div><span>id: </span>{{ hero.name }}</div>
   <div>
     <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name hero" />
+    <input [(ngModel)]="hero.name" id="hero-name" placeholder="name hero"/>
   </div>
 </div>
-
 <div>
   <button
+    (click)="goBack()"
     [ngStyle]="{
       padding: '1.2rem',
       margin: '0.5rem 0',
@@ -33,7 +33,6 @@
       justifyContent: 'space-between',
       alignItems: 'center'
     }"
-    (click)="goBack()"
   >
     go back
   </button>

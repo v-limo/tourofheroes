@@ -1,15 +1,12 @@
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from '../app-routing.module';
+import {NgForOf, NgIf, NgStyle, SlicePipe, UpperCasePipe} from '@angular/common';
+import {NgModule} from '@angular/core';
 import DashboardComponent from '../tourOfHeroes/dashboard/dashboard.component';
-import { HeroDetailComponent } from '../tourOfHeroes/hero-detail/hero-detail.component';
-import { HeroComponent } from '../tourOfHeroes/hero/hero.component';
-import { HeroesComponent } from '../tourOfHeroes/heroes/heroes.component';
-import { MessagesComponent } from '../tourOfHeroes/messages/messages.component';
+import {HeroDetailComponent} from '../tourOfHeroes/hero-detail/hero-detail.component';
+import {HeroComponent} from '../tourOfHeroes/hero/hero.component';
+import {HeroesComponent} from '../tourOfHeroes/heroes/heroes.component';
+import {MessagesComponent} from '../tourOfHeroes/messages/messages.component';
+import {FormsModule} from "@angular/forms";
+import {RouterLink} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -19,8 +16,20 @@ import { MessagesComponent } from '../tourOfHeroes/messages/messages.component';
     MessagesComponent,
     DashboardComponent,
   ],
-  imports: [],
+  imports: [
+    UpperCasePipe,
+    NgIf,
+    NgForOf,
+    NgStyle,
+    FormsModule,
+    RouterLink,
+    SlicePipe
+  ],
 
   providers: [],
+  exports: [
+    MessagesComponent
+  ]
 })
-export class FirstAppModule {}
+export class FirstAppModule {
+}
