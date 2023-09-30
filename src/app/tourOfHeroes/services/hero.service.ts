@@ -1,5 +1,6 @@
 import { Observable, of } from 'rxjs';
 
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -21,9 +22,10 @@ export class HeroService {
   getHero(
     url: string | undefined
   ): Observable<IHeroDetailResponse | undefined> {
-    const reponse = this.http.get<IHeroDetailResponse>(`${url}`);
+    const response = this.http.get<IHeroDetailResponse>(`${url}`);
+
     this.messageService.add(`HeroService: fetched hero id=${url}`);
-    return reponse;
+    return response;
   }
 
   getAllHeroes(): Observable<IHeroResponse> {

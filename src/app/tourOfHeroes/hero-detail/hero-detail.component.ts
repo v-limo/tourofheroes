@@ -15,7 +15,7 @@ import { MessageService } from '../services/message.service';
 export class HeroDetailComponent implements OnInit, OnDestroy {
   hero?: IHeroDetailResponse;
   urlId?: string;
-  substription?: Subscription;
+  subscription?: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -54,6 +54,6 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.substription?.unsubscribe();
+    this.subscription?.unsubscribe();
   }
 }

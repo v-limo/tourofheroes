@@ -13,7 +13,8 @@ import { MessageService } from '../services/message.service';
 })
 export default class DashboardComponent implements OnInit, OnDestroy {
   dashedBoardHeros: Hero[] = [];
-  substription?: Subscription;
+  subscription?: Subscription;
+
 
   constructor(
     private messageService: MessageService,
@@ -21,7 +22,7 @@ export default class DashboardComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.substription = this.heroService.getAllHeroes().subscribe({
+    this.subscription = this.heroService.getAllHeroes().subscribe({
       next: (heroes) => {
         this.dashedBoardHeros = heroes.results.slice(1, 5);
         this.messageService.add('DashboardComponent: fetched 5 heroes');
@@ -36,6 +37,6 @@ export default class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.substription?.unsubscribe();
+    this.subscription?.unsubscribe();
   }
 }

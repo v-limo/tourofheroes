@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core'
+import {Injectable} from '@angular/core'
 
-import { HousingLocation } from '../housinglocation.interface'
+import {HousingLocation} from '../housinglocation.interface'
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +8,7 @@ import { HousingLocation } from '../housinglocation.interface'
 export class HousingService {
   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
 
-  
+
   housingLocationList: HousingLocation[] = [
     {
       id: 0,
@@ -112,7 +112,9 @@ export class HousingService {
     },
   ];
 
-  constructor() {}
+  constructor() {
+    
+  }
 
   getAllHousingLocations(): HousingLocation[] {
     return this.housingLocationList;
